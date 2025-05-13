@@ -80,7 +80,7 @@ header h1 span {
     color: var(--arabic-green);
 }
 
-header button {
+button {
     background-color: var(--arabic-green);
     border: 2px solid var(--arabic-green);
     border-radius: 0.35rem;
@@ -98,6 +98,7 @@ header button:hover {
 
 footer {
     font-size: 1.2rem;
+    padding-block: 10px;
 }
 
 footer a {
@@ -115,8 +116,59 @@ h1 {
     width: 100%;
 }
 
-dialog {
+.modal {
     position: fixed;
     margin: auto;
     inset: 0 0 0 0;
+    border: 3px solid var(--arabic-brown);
+    border-radius: 1rem;
+    padding: 0;
+}
+
+.modal > div {
+    padding: 30px;
+}
+
+.modal > div > div {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.modal h2 {
+    color: var(--arabic-brown);
+    font-size: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form > div {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+input {
+    border: 1px solid var(--text-black);
+    padding: 2px 4px;
+}
+
+
+input:focus {
+    outline: 1px solid var(--arabic-brown);
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 5px;
 }
