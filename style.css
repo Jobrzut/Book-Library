@@ -132,6 +132,7 @@ h1 {
 .modal > div > div {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 30px;
 }
 
@@ -149,6 +150,7 @@ form {
 form > div {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     gap: 30px;
 }
@@ -156,6 +158,11 @@ form > div {
 input {
     border: 1px solid var(--text-black);
     padding: 2px 4px;
+}
+
+input:disabled {
+    background-color: #dfdfdf;
+    cursor: not-allowed;
 }
 
 

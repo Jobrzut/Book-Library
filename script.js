@@ -1,6 +1,8 @@
 const addBooksButton = document.querySelector(".addBooks");
 const closeModalButton = document.querySelector(".close");
 const modal = document.querySelector(".modal");
+const statusSelect = document.querySelector(".status")
+const readPagesInput = document.querySelector(".readPages")
 
 
 function ShowHideModal() {
@@ -25,4 +27,15 @@ function Book(title, author, totalPages, readPages, status)  {
     this.status = status;
 }
 
+function EnableDisableInput() {
+    statusSelect.addEventListener("change", (e) => {
+        if (e.target.value == "reading") {
+            readPagesInput.disabled = false;
+        } else {
+            readPagesInput.disabled = true;
+        }
+    });
+}
+
 ShowHideModal();
+EnableDisableInput();
