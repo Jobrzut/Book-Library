@@ -172,3 +172,11 @@ input:focus {
     padding: 0;
     margin: 5px;
 }
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+

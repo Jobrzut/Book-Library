@@ -14,4 +14,15 @@ function ShowHideModal() {
     });
 }
 
+function Book(title, author, totalPages, readPages, status)  {
+    if(!new.target) {
+        throw new TypeError("Calling constructor without new is invalid!");
+    }
+    this.title = title;
+    this.author = author;
+    this.totalPages = totalPages;
+    this.readPages = readPages;
+    this.status = status;
+}
+
 ShowHideModal();

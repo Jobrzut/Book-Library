@@ -28,16 +28,20 @@
                     <h2>New Book</h2>
                     <form action="" method="post">
                         <div>
-                            <label for="title" aria-required="true">Title</label>
+                            <label for="title" aria-required="true">Title:</label>
                             <input type="text" id="title" name="title" required>
                         </div>
                         <div>
-                            <label for="author">Author</label>
+                            <label for="author">Author:</label>
                             <input type="text" id="author" name="author">
                         </div>
                         <div>
-                            <label for="pages">Pages</label>
-                            <input type="number" id="pages" name="pages">
+                            <label for="totalPages">Total pages:</label>
+                            <input type="number" id="totalPages" name="totalPages">
+                        </div>
+                        <div>
+                            <label for="readPages">Read pages</label>
+                            <input type="number" id="readPages" name="readPages" disabled>
                         </div>
                         <div>
                             <label for="status">Status</label>
@@ -50,8 +54,8 @@
                         <button type="submit">Add</button>
                     </form>
                 </div>
-                        </dialog>
             </div>
+        </dialog>
     </div>
     <footer>
         <p>Made by <a target="_blank" rel="noopener noreferrer" href="https://github.com/Jobrzut" >Julek</a></p>
