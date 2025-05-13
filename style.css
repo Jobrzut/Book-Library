@@ -47,12 +47,22 @@ h1, h2, h3, h4, h5, h6 {
 
 /*My code*/
 
+@font-face {
+    font-family: 'Montserrat';
+    src: url(Montserrat.woff2);
+}
+:root {
+    --arabic-green:	#799a51;
+    --arabic-brown:	#5f5748;
+}
+
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     justify-content: space-between;
     align-items: center;
+    font-family: 'Montserrat', system-ui;
 }
 
 header {
@@ -61,4 +71,38 @@ header {
     align-items: center;
     width: 100%;
     justify-content: space-around;
+    color: var(--arabic-brown);
+}
+
+header h1 span {
+    color: var(--arabic-green);
+}
+
+header button {
+    background-color: var(--arabic-green);
+    border: 2px solid var(--arabic-green);
+    border-radius: 0.35rem;
+    padding: 8px 16px;
+    color: white;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+header button:hover {
+    color: var(--arabic-green);
+    background-color: white;
+}
+
+footer {
+    font-size: 1.2rem;
+}
+
+footer a {
+    color: var(--arabic-green);
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 2.7rem;
 }
