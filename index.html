@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="manifest" href="favicon/site.webmanifest">
+    <script src="script.js"></script>
 </head>
 <body>
     <header>
@@ -16,12 +17,36 @@
             <h1>Maktabah <span>ت</span></h1>
         </div>
         <div>
-            <button>Add a book</button>
+            <button class="addBooks">Add a book</button>
         </div>
     </header>
-    <body>
-        
-    </body>
+    <div class="content">
+        <dialog role="alertdialog" aria-modal="true" class="modal">
+            <h2>New Book</h2>
+            <form action="" method="post">
+                <div>
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title">
+                </div>
+                <div>
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author">
+                </div>
+                <div>
+                    <label for="pages">Pages</label>
+                    <input type="number" id="pages" name="pages">
+                </div>
+                <div>
+                    <label for="status">Status</label>
+                    <select name="status" id="status">
+                        <option value="reading">Reading</option>
+                        <option value="read">Read</option>
+                        <option value="read">Want to read</option>
+                    </select>
+                </div>
+            </form>
+        </dialog>
+    </div>
     <footer>
         <p>Made by <a target="_blank" rel="noopener noreferrer" href="https://github.com/Jobrzut" >Julek</a></p>
     </footer>
