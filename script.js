@@ -12,9 +12,17 @@ const readPagesInput = document.querySelector("#readPages");
 const statusInput = document.querySelector("#status");
 
 const booksGrid = document.querySelector(".books__grid");
+const noBooks = document.querySelector(".no__books")
 
 let books = [];
 
+function noBooksToggle() {
+    if (books.length == 0) {
+        noBooks.style.display = "block";
+    } else {
+        noBooks.style.display = "none";
+    }
+}
 
 
 function ShowHideModal() {
@@ -53,7 +61,9 @@ function EnableDisableInput() {
 function addBookToLibrary() {
     submitButton.addEventListener("click", (e) =>{
         e.preventDefault();
-        books.push(new Book(titleInput.value, authorInput.value, totalPagesInput.value, readPagesInput.value, statusInput.value));
+        if (titleInput.value !== "" && authorInput.value !== "") {
+            books.push(new Book(titleInput.value, authorInput.value, totalPagesInput.value, readPagesInput.value, statusInput.value));
+        }
         modal.close();
         form.reset();
         readPagesInput.disabled = true;
@@ -62,9 +72,13 @@ function addBookToLibrary() {
 }
 
 function displayBooks() {
-    while (booksGrid.firstChild) {
-        booksGrid.firstChild.remove();
+    if (books.length !== 0) {
+        while (booksGrid.firstChild) {
+            booksGrid.firstChild.remove();
+        }
     }
+
+    noBooksToggle();
 
     books.forEach((book) => {
         const bookCard = document.createElement("div");
@@ -72,11 +86,11 @@ function displayBooks() {
         bookCard.setAttribute("id", book.id);
 
         const title = document.createElement("h2");
-        title.textContent = book.title;
+        title.textContent = `"` + book.title + `"`;
         bookCard.appendChild(title);
 
         const author = document.createElement("p");
-        author.textContent = book.author;
+        author.textContent = "By " + book.author;
         bookCard.appendChild(author);
 
         const totalPages = document.createElement("p");

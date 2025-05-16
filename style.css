@@ -183,12 +183,30 @@ input:focus {
 .content {
     display: flex;
     flex-direction: column;
-    padding: 50px 100px;
+    padding: 100px 100px;
 }
 
 .books__grid {
-    display: flex;
-    gap: 200px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 250px);
+    gap: 20px;
+}
+
+.book__card {
+    padding: 20px;
+    border: 3px solid var(--arabic-brown);
+}
+
+.book__card h2 {
+    text-align: center;
+}
+
+progress {
+    background: var(--arabic-green);
+    accent-color: var(--arabic-green);
+}
+
+.no__books {
+    margin: auto;
 }
 
