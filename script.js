@@ -1,8 +1,17 @@
 const addBooksButton = document.querySelector(".addBooks");
 const closeModalButton = document.querySelector(".close");
 const modal = document.querySelector(".modal");
-const statusSelect = document.querySelector(".status")
-const readPagesInput = document.querySelector(".readPages")
+const statusSelect = document.querySelector(".status");
+const submitButton = document.querySelector(".submitButton");
+
+const titleInput = document.querySelector("#title");
+const authorInput = document.querySelector("#author");
+const totalPagesInput = document.querySelector("#totalPages");
+const readPagesInput = document.querySelector("#readPages");
+const statusInput = document.querySelector("#status");
+
+let books = [];
+
 
 
 function ShowHideModal() {
@@ -25,6 +34,7 @@ function Book(title, author, totalPages, readPages, status)  {
     this.totalPages = totalPages;
     this.readPages = readPages;
     this.status = status;
+    this.id = crypto.randomUUID();
 }
 
 function EnableDisableInput() {
@@ -37,5 +47,14 @@ function EnableDisableInput() {
     });
 }
 
+function addBookToLibrary() {
+    submitButton.addEventListener("click", (e) =>{
+        e.preventDefault();
+        books.push(new Book(titleInput.value, authorInput.value, totalPagesInput.value, readPagesInput.value, statusInput.value));
+        modal.close();
+    });
+}
+
 ShowHideModal();
 EnableDisableInput();
+addBookToLibrary();

@@ -187,3 +187,7 @@ input:focus {
     justify-content: center;
 }
 
+.books__grid {
+    display: grid;
+}
+
