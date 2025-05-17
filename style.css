@@ -195,18 +195,63 @@ input:focus {
 .book__card {
     padding: 20px;
     border: 3px solid var(--arabic-brown);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.book__card_text {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
 }
 
 .book__card h2 {
     text-align: center;
 }
 
+.book__card > div:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.remove__button {
+    background-color: #8c3a3a;
+    border: 2px solid #8c3a3a;
+}
+
+.remove__button:hover {
+    background-color: white;
+    color: #8c3a3a;
+}
+
+.edit__button {
+    background-color: #9a8c51;
+    border: 2px solid #9a8c51;
+}
+
+.edit__button:hover {
+    background-color: white;
+    color: #9a8c51;
+}
+
+.author__name {
+    color: var(--arabic-green);
+    font-weight: bold;
+}
+
 progress {
     background: var(--arabic-green);
     accent-color: var(--arabic-green);
+    width: 100%;
 }
 
 .no__books {
     margin: auto;
 }
 
+progress::-webkit-progress-value {
+    background: var(--arabic-green);
+}
