@@ -41,7 +41,7 @@ Welcome to **Maktabah** (مكتبة), a simple and elegant book library web appl
 ## Credits
 
 - Created by [Julek](https://github.com/Jobrzut).
-- Inspired by the love for books and reading.
+- Inspired by the love for Arab culture.
 
 ## License
 
