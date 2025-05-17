@@ -12,9 +12,10 @@ const readPagesInput = document.querySelector("#readPages");
 const statusInput = document.querySelector("#status");
 
 const booksGrid = document.querySelector(".books__grid");
-const noBooks = document.querySelector(".no__books")
+const noBooks = document.querySelector(".no__books");
 
-const readPagesCard = document.querySelector(".book__card input")
+const readPagesCard = document.querySelector(".book__card input");
+let bookGridCards = document.querySelectorAll(".books__grid > div");
 
 let books = [];
 
@@ -70,76 +71,92 @@ function addBookToLibrary() {
         form.reset();
         readPagesInput.disabled = true;
         displayBooks();
+        bookGridCards = document.querySelectorAll(".books__grid > div");
+        removeCard();
     });
 }
 
 function displayBooks() {
-    if (books.length !== 0) {
-        while (booksGrid.firstChild) {
-            booksGrid.firstChild.remove();
-        }
-    }
-
     noBooksToggle();
 
     books.forEach((book) => {
-        const bookCard = document.createElement("div");
-        bookCard.className = "book__card";
+        let displayedIds = Array.from(bookGridCards).map(card => card.id)
 
-        const bookCardText = document.createElement("div");
-        bookCardText.className = "book__card_text";
+        if (displayedIds ? !displayedIds.includes(book.id) : true) {
+            const bookCard = document.createElement("div");
+            bookCard.className = "book__card";
+            bookCard.setAttribute("id", book.id);
 
-        const title = document.createElement("h2");
-        title.textContent = `"` + book.title + `"`;
-        bookCard.appendChild(title);
+            const bookCardText = document.createElement("div");
+            bookCardText.className = "book__card_text";
 
-        const authorName = document.createElement("span");
-        authorName.className = "author__name";
-        authorName.textContent = book.author;
-        const author = document.createElement("p");
-        author.textContent = "By ";
-        author.appendChild(authorName);
-        bookCardText.appendChild(author);
+            const title = document.createElement("h2");
+            title.textContent = `"` + book.title + `"`;
+            bookCard.appendChild(title);
 
-        if (book.totalPages !== "") {
-            const totalPages = document.createElement("p");
-            totalPages.textContent = "Total pages: " + book.totalPages;
-            bookCardText.appendChild(totalPages);
-        }
+            const authorName = document.createElement("span");
+            authorName.className = "author__name";
+            authorName.textContent = book.author;
+            const author = document.createElement("p");
+            author.textContent = "By ";
+            author.appendChild(authorName);
+            bookCardText.appendChild(author);
 
-        if (book.status == "Reading") {
-            const readPages = document.createElement("p");
-            readPages.textContent = "Read pages: " + book.readPages;
-            bookCardText.appendChild(readPages);
+            if (book.totalPages !== "") {
+                const totalPages = document.createElement("p");
+                totalPages.textContent = "Total pages: " + book.totalPages;
+                bookCardText.appendChild(totalPages);
+            }
 
-            const progressBar = document.createElement("progress");
-            progressBar.id = "readprogress";
-            progressBar.value = book.readPages;
-            progressBar.max = book.totalPages;
-            bookCardText.appendChild(progressBar);
-        } else {
-            const status = document.createElement("p");
-            status.textContent = "Status: " + book.status;
-            bookCardText.appendChild(status);
-        }
-        
-        bookCard.appendChild(bookCardText)
+            if (book.status == "Reading") {
+                const readPages = document.createElement("p");
+                readPages.textContent = "Read pages: " + book.readPages;
+                bookCardText.appendChild(readPages);
 
-        const buttonsDiv = document.createElement("div");
-        const removeButton = document.createElement("button");
-        removeButton.textContent = "Remove";
-        removeButton.className = "remove__button";
-        removeButton.setAttribute("id", book.id);
+                const progressBar = document.createElement("progress");
+                progressBar.id = "readprogress";
+                progressBar.value = book.readPages;
+                progressBar.max = book.totalPages;
+                bookCardText.appendChild(progressBar);
+            } else {
+                const status = document.createElement("p");
+                status.textContent = "Status: " + book.status;
+                bookCardText.appendChild(status);
+            }
+            
+            bookCard.appendChild(bookCardText)
 
-        const editButton = document.createElement("button");
-        editButton.textContent = "Edit";
-        editButton.className = "edit__button";
-        
-        buttonsDiv.append(removeButton, editButton);
-        bookCard.appendChild(buttonsDiv);
+            const buttonsDiv = document.createElement("div");
+            const removeButton = document.createElement("button");
+            removeButton.textContent = "Remove";
+            removeButton.className = "remove__button";
+            removeButton.setAttribute("id", book.id);
 
-        booksGrid.appendChild(bookCard);
+            const editButton = document.createElement("button");
+            editButton.textContent = "Edit";
+            editButton.className = "edit__button";
+            
+            buttonsDiv.append(removeButton, editButton);
+            bookCard.appendChild(buttonsDiv);
+
+            booksGrid.appendChild(bookCard);
+        } 
     });
+}
+
+function removeCard() {
+    let removeButtons = document.querySelectorAll(".remove__button");
+    if (removeButtons) {
+        removeButtons.forEach((button) => {
+            button.addEventListener("click", (e) => {
+                let deleteIndex = books.findIndex((book) => book.id === button.id)
+                if (deleteIndex !== -1) {
+                    books.splice(deleteIndex,1);
+                    bookGridCards[deleteIndex].remove()
+                }
+            });
+    });
+}
 }
 
 ShowHideModal();
