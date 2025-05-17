@@ -116,7 +116,7 @@ h1 {
     width: 100%;
 }
 
-.modal {
+.modal, .modal__edit {
     position: fixed;
     margin: auto;
     inset: 0 0 0 0;
@@ -125,7 +125,7 @@ h1 {
     padding: 0;
 }
 
-.modal > div {
+.modal > div, .modal__edit > div {
     padding: 30px;
 }
 

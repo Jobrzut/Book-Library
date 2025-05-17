@@ -1,5 +1,6 @@
 const addBooksButton = document.querySelector(".addBooks");
-const closeModalButton = document.querySelector(".close");
+const closeModalButton = document.querySelector(".modal .close");
+const closeEditModalButton = document.querySelector(".modal__edit .close");
 const modal = document.querySelector(".modal");
 const statusSelect = document.querySelector(".status");
 const submitButton = document.querySelector(".submitButton");
@@ -16,6 +17,8 @@ const noBooks = document.querySelector(".no__books");
 
 const readPagesCard = document.querySelector(".book__card input");
 let bookGridCards = document.querySelectorAll(".books__grid > div");
+
+const modalEdit = document.querySelector(".modal__edit");
 
 let books = [];
 
@@ -73,6 +76,7 @@ function addBookToLibrary() {
         displayBooks();
         bookGridCards = document.querySelectorAll(".books__grid > div");
         removeCard();
+        editCard();
     });
 }
 
@@ -155,6 +159,16 @@ function removeCard() {
                     bookGridCards[deleteIndex].remove()
                 }
             });
+    });
+}
+}
+
+function editCard() {
+    let editButtons = document.querySelectorAll(".edit__button");
+    if (editButtons) {
+        editButtons.forEach((button) => {
+            button.addEventListener("click", (e) => modalEdit.showModal());
+            closeEditModalButton.addEventListener("click", () => modalEdit.close());
     });
 }
 }
