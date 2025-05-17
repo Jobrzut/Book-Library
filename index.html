@@ -40,8 +40,8 @@
                             <input type="text" id="author" name="author" required>
                         </div>
                         <div>
-                            <label for="totalPages">Total pages:</label>
-                            <input type="number" id="totalPages" name="totalPages">
+                            <label for="totalPages">Total pages: *</label>
+                            <input type="number" id="totalPages" name="totalPages" required>
                         </div>
                         <div>
                             <label for="readPages">Read pages:</label>
@@ -67,10 +67,6 @@
                     <h2>Edit</h2>
                     <form action="" method="post">
                         <div>
-                            <label for="readPagesEdit">Read pages:</label>
-                            <input type="number" id="readPagesEdit" name="readPagesEdit" class="readPagesEdit" disabled>
-                        </div>
-                        <div>
                             <label for="statusEdit">Status</label>
                             <select name="status" id="statusEdit" class="statusEdit">
                                 <option value="Want to read">Want to read</option>
@@ -78,7 +74,11 @@
                                 <option value="Read">Read</option>
                             </select>
                         </div>
-                        <button type="submit" class="submitButton">Add</button>
+                        <div>
+                            <label for="readPagesEdit">Read pages:</label>
+                            <input type="number" id="readPagesEdit" name="readPagesEdit" class="readPagesEdit" disabled>
+                        </div>
+                        <button type="submit" class="submitEditButton">Edit</button>
                     </form>
                 </div>
             </div>

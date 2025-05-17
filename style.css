@@ -190,6 +190,7 @@ input:focus {
     display: grid;
     grid-template-columns: repeat(auto-fit, 250px);
     gap: 20px;
+    place-content: center;
 }
 
 .book__card {
@@ -198,6 +199,7 @@ input:focus {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    justify-content: space-between;
 }
 
 .book__card_text {
@@ -254,4 +256,12 @@ progress {
 
 progress::-webkit-progress-value {
     background: var(--arabic-green);
+}
+
+.modal__edit h2 {
+    margin-bottom: 20px;
+}
+
+.modal__edit button {
+    margin-top: 20px;
 }
