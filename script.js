@@ -160,6 +160,7 @@ function addBookToLibrary() {
         e.preventDefault();
         if (titleInput.value !== "" && authorInput.value !== "" && totalPagesInput.value !== "") {
             books.push(new Book(titleInput.value, authorInput.value, totalPagesInput.value, readPagesInput.value, statusInput.value));
+            books.at(-1).changeStatus(statusInput.value, readPagesInput.value);
             modal.close();
             form.reset();
             readPagesInput.disabled = true;
@@ -278,6 +279,9 @@ function editCard() {
                 if (statusEditInput.value == "Reading") {
                     readPagesEdit.disabled = false;
                     readEditInput.value = books[indexOfCard].readPages;
+                } else if (statusEditInput.value == "Read") {
+                    readPagesEdit.disabled = true;
+                    readEditInput.value = "";
                 }
             });
             closeEditModalButton.addEventListener("click", () => modalEdit.close());
