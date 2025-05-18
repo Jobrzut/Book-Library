@@ -256,6 +256,7 @@ function removeCard() {
                 if (deleteIndex !== -1) {
                     books.splice(deleteIndex,1);
                     bookGridCards[deleteIndex].remove()
+                    noBooksToggle();
                 }
             });
     });
