@@ -262,6 +262,11 @@ progress::-webkit-progress-value {
     margin-bottom: 20px;
 }
 
-.modal__edit button {
+.modal__edit form button {
     margin-top: 20px;
+}
+
+.submitEditButton:hover {
+    background-color: white;
+    color: var(--arabic-green);
 }
