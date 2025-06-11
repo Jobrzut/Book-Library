@@ -118,7 +118,7 @@ function checkIfField() {
     authorInput.value !== "" &&
     totalPagesInput.value !== "" &&
     modal.querySelector(".requiredInfo")
-) {
+  ) {
     submitButton.disabled = false;
     submitButton.style.cursor = "pointer";
     modal.querySelector(".requiredInfo").remove();
@@ -148,27 +148,26 @@ function ShowHideModal() {
   });
 }
 
-function Book(title, author, totalPages, readPages, status) {
-  if (!new.target) {
-    throw new TypeError("Calling constructor without new is invalid!");
-  }
-  this.title = title;
-  this.author = author;
-  this.totalPages = totalPages;
-  this.readPages = readPages;
-  this.status = status;
-  this.id = crypto.randomUUID();
-}
-
-Book.prototype.changeStatus = function (status, readPages) {
-  this.status = status;
-  if (status == "Reading") {
+class Book {
+  constructor(title, author, totalPages, readPages, status) {
+    this.title = title;
+    this.author = author;
+    this.totalPages = totalPages;
     this.readPages = readPages;
-    if (this.readPages == this.totalPages) {
-      this.status = "Read";
+    this.status = status;
+    this.id = crypto.randomUUID();
+  }
+
+  changeStatus(status, readPages) {
+    this.status = status;
+    if (status == "Reading") {
+      this.readPages = readPages;
+      if (this.readPages == this.totalPages) {
+        this.status = "Read";
+      }
     }
   }
-};
+}
 
 function EnableDisableInput() {
   statusSelect.addEventListener("change", (e) => {
